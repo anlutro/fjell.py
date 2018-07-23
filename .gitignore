@@ -1,0 +1,13 @@
+# python
+__pycache__
+*.pyc
+/pip-selfcheck.json
+*.egg-info
+/dist
+
+# pytest
+/.coverage
+/.pytest_cache
+
+# virtualenv
+/.venv
