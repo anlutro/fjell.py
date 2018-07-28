@@ -2,3 +2,7 @@ pytest
 pytest-cov
 pylint
 pycodestyle
+
+# needed for plugin testing/linting
+jinja2
+sqlalchemy
