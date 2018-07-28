@@ -3,7 +3,7 @@ import sqlalchemy
 import sqlalchemy.ext.declarative
 import sqlalchemy.orm
 from sqlalchemy.engine import Engine
-from sqlalchemy.orm.sessioni import Session, sessionmaker
+from sqlalchemy.orm.session import Session, sessionmaker
 
 from fjell.config import Config
 
