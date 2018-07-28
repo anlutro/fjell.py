@@ -40,20 +40,21 @@ class UsersViewSet(views.RestViewSet, SqlAlchemyMixin):
         return http.JsonResponse(user.as_dict())
 
     def create(self, request):
-        user = User(name=request.form['name'], password=request.form['password'])
+        user = User(name=request.form['name'],
+                    password=request.form['password'])
         self.session.add(user)
         self.session.commit()
         return http.JsonResponse(user.as_dict())
 
     def update(self, request, id):
-        user = self.session.query(User).filter(User.id==id).first()
+        user = self.session.query(User).filter(User.id == id).first()
         user.name = request.form['name']
         self.session.add(user)
         self.session.commit()
         return http.JsonResponse(user.as_dict())
 
     def delete(self, request, id):
-        user = self.session.query(User).filter(User.id==id).first()
+        user = self.session.query(User).filter(User.id == id).first()
         self.session.delete(user)
         self.session.commit()
         return http.Response(status=202)

@@ -12,13 +12,13 @@ def resolve(name):
     for idx in reversed(range(1, len(parts) + 1)):
         mod = '.'.join(parts[:idx])
         attrs = parts[idx:]
-    
+
         try:
             obj = importlib.import_module(mod)
         except ImportError as exc:
             last_exc = exc
             continue
-    
+
         try:
             for attr in attrs:
                 obj = getattr(obj, attr)

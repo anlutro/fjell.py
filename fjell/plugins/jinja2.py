@@ -14,7 +14,7 @@ class Jinja2Plugin(diay.Plugin):
         return jinja2.PackageLoader(app.name, 'templates')
 
     @diay.provider(singleton=True)
-    def provide_jinja_env(self, loader: jinja2.BaseLoader) -> jinja2.Environment:
+    def provide_jinja_env(self, loader: jinja2.BaseLoader) -> jinja2.Environment:  # noqa
         return jinja2.Environment(loader=loader)
 
 

@@ -39,7 +39,8 @@ class Application:
     def add_route(self, methods, path, view, **kwargs):
         if isinstance(methods, str):
             methods = (methods,)
-        rule = werkzeug.routing.Rule(path, methods=methods, endpoint=view, **kwargs)
+        rule = werkzeug.routing.Rule(path, methods=methods, endpoint=view,
+                                     **kwargs)
         self.url_map.add(rule)
 
     def add_routes(self, routes):
@@ -59,9 +60,11 @@ class Application:
 
     def dispatch_request(self, request):
         try:
-            endpoint, values = self.url_map.bind_to_environ(request.environ).match()
+            matcher = self.url_map.bind_to_environ(request.environ)
+            endpoint, values = matcher.match()
         except werkzeug.exceptions.HTTPException as exc:
-            log.warning('HTTPException while URL matching %r', request, exc_info=True)
+            log.warning('HTTPException while URL matching %r',
+                        request, exc_info=True)
             return exc
 
         if isinstance(endpoint, str):
@@ -78,7 +81,8 @@ class Application:
             )
             return exc
         except werkzeug.exceptions.HTTPException as exc:
-            log.warning('HTTPException while calling view function', exc_info=True)
+            log.warning('HTTPException while calling view function',
+                        exc_info=True)
             return exc
 
         if isinstance(response, str):

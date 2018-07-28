@@ -26,14 +26,14 @@ class RestViewSet:
         else:
             method = self.methods[request.method]
         if not hasattr(self, method):
-            msg = 'view set %r does not imlpement method %r for HTTP method %s' % (
-                self, method, request.method)
-            raise NotImplementedError(msg)
+            msg = 'view set %r does not imlpement method %r for HTTP method %s'
+            raise NotImplementedError(msg % (self, method, request.method))
         return getattr(self, method)(request, **values)
 
     @classmethod
     def get_routes(cls, root_url, id_keyword='id'):
         return [
             (('HEAD', 'GET', 'POST'), root_url, cls),
-            (('HEAD', 'GET', 'PATCH', 'PUT', 'DELETE'), '%s/<%s>' % (root_url, id_keyword), cls),
+            (('HEAD', 'GET', 'PATCH', 'PUT', 'DELETE'),
+             '%s/<%s>' % (root_url, id_keyword), cls),
         ]
