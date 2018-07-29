@@ -6,5 +6,5 @@ pycodestyle
 # needed for plugin testing/linting
 jinja2
 sqlalchemy
-yaml
+pyyaml
 toml
