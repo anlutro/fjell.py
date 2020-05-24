@@ -1,7 +1,7 @@
 pytest
 pytest-cov
 pylint
-pycodestyle
+black
 
 # needed for plugin testing/linting
 jinja2
