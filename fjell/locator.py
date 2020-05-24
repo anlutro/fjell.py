@@ -6,11 +6,11 @@ class LocatorError(Exception):
 
 
 def resolve(name):
-    parts = name.split('.')
+    parts = name.split(".")
     last_exc = None
 
     for idx in reversed(range(1, len(parts) + 1)):
-        mod = '.'.join(parts[:idx])
+        mod = ".".join(parts[:idx])
         attrs = parts[idx:]
 
         try:
@@ -27,4 +27,4 @@ def resolve(name):
             last_exc = exc
             continue
 
-    raise ImportError('could not resolve %r' % name) from last_exc
+    raise ImportError("could not resolve %r" % name) from last_exc

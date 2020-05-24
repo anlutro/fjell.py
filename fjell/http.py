@@ -12,5 +12,5 @@ class Response(werkzeug.wrappers.Response):
 
 class JsonResponse(Response):
     def __init__(self, response, *args, **kwargs):
-        kwargs.setdefault('mimetype', 'application/json')
-        super().__init__((json.dumps(response), '\n'), *args, **kwargs)
+        kwargs.setdefault("mimetype", "application/json")
+        super().__init__((json.dumps(response), "\n"), *args, **kwargs)

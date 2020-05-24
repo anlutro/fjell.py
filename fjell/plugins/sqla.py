@@ -8,13 +8,13 @@ from sqlalchemy.orm.session import Session, sessionmaker
 from fjell.config import Config
 
 
-__plugin__ = 'SqlAlchemyPlugin'
+__plugin__ = "SqlAlchemyPlugin"
 
 
 class SqlAlchemyPlugin(diay.Plugin):
     @diay.provider(singleton=True)
     def provide_db_engine(self, config: Config) -> Engine:
-        return sqlalchemy.create_engine(config.get('db'), convert_unicode=True)
+        return sqlalchemy.create_engine(config.get("db"), convert_unicode=True)
 
     @diay.provider(singleton=True)
     def provide_session(self, engine: Engine) -> Session:
@@ -26,6 +26,6 @@ class SqlAlchemyPlugin(diay.Plugin):
 Base = sqlalchemy.ext.declarative.declarative_base()
 
 
-@diay.inject('session', Session)
+@diay.inject("session", Session)
 class SqlAlchemyMixin:
     pass
