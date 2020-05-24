@@ -12,15 +12,15 @@ python:
   - '3.7'
   - '3.6'
   - '3.5'
-install: pip install -e . --upgrade pytest
+install: pip install -e . -U -r requirements/dev-pytest.txt
 script: pytest
 
 jobs:
   include:
     - name: black
-      install: pip install --upgrade black
+      install: pip install -U -r requirements/dev-black.txt
       script: black --check .
 
     - name: pylint
-      install: pip install -e . --upgrade pylint
+      install: pip install -e . -U -r requirements/dev-pylint.txt
       script: pylint -E fjell

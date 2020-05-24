@@ -1,8 +1,3 @@
-pytest
-pytest-cov
-pylint
-black
-
 # needed for plugin testing/linting
 jinja2
 sqlalchemy

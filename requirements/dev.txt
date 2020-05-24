@@ -1,0 +1,4 @@
+-e .
+-r dev-black.txt
+-r dev-pylint.txt
+-r dev-pytest.txt
