@@ -2,7 +2,9 @@ from fjell.app import Application
 
 app = Application(__name__, debug=True)
 app.config.update(
-    {"db": "sqlite:////tmp/db.sqlite3",}
+    {
+        "db": "sqlite:////tmp/db.sqlite3",
+    }
 )
 
 app.add_plugin("fjell.plugins.sqla")

@@ -17,7 +17,10 @@ setuptools.setup(
     author_email="anlutro@gmail.com",
     url="https://github.com/anlutro/fjell.py",
     packages=setuptools.find_packages(include=("fjell", "fjell.*")),
-    install_requires=["diay>=0.1.3", "werkzeug>=0.12",],
+    install_requires=[
+        "diay>=0.1.3",
+        "werkzeug>=0.12",
+    ],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",

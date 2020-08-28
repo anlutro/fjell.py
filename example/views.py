@@ -17,7 +17,10 @@ class TemplateView(views.View, Jinja2ViewMixin):
 class JsonViewSet(views.ViewSet):
     def get(self, request):
         return http.JsonResponse(
-            {"status": "ok", "message": "hello world from BarViewSet.get!",}
+            {
+                "status": "ok",
+                "message": "hello world from BarViewSet.get!",
+            }
         )
 
     def post(self, request):
